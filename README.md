@@ -55,27 +55,50 @@ SpringBoot-Data-JPA-Pro2-Crudrepo
 
 ## 📄 Example `application.properties`
 ```properties
-# Database Configuration (Example: Oracle)
-spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+# --- Database Connection Properties ---
+# Specifies the JDBC driver class for Oracle.
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
 
-# JPA / Hibernate
-spring.jpa.hibernate.ddl-auto=update
+# Configures the connection URL for the Oracle database.
+# This URL points to the 'xe' SID on the local machine at port 1521.
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:orcl
+
+# Sets the database username.
+spring.datasource.username=system
+
+# Sets the password for the database user.
+spring.datasource.password=Chinmay
+
+# --- JPA and Hibernate Properties ---
+# Specifies the Hibernate dialect for Oracle, which helps Hibernate generate Oracle-specific SQL.
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.OracleDialect
+
+# When set to true, this logs all SQL queries to the console for debugging.
 spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
 
-## 📖 What I Learned
-Through this project, I gained practical knowledge in:
-- Setting up a **Spring Boot** application from scratch
-- Using **Spring Data JPA** and `CrudRepository` for database operations
-- Designing an **Entity class** and mapping it to a database table
-- Writing a **Service Layer** to separate business logic from data access
-- Implementing a **CommandLineRunner** to run CRUD operations at startup
-- Configuring `application.properties` for different databases (Oracle/MySQL)
-- Using **Maven** for project build and dependency management
-- Understanding how JPA automatically handles SQL queries behind the scenes
+# Configures Hibernate to automatically update the database schema based on your entities.
+# The `update` value adds or modifies tables and columns but doesn't drop them.
+spring.jpa.hibernate.ddl-auto=update
+
+
+
+
+## 📖 What I Learned  
+
+💡 During this project, I explored **Spring Boot** and **Spring Data JPA** in depth, gaining hands-on experience with:  
+
+- 🚀 **Spring Boot Setup** — Creating a project from scratch with Maven  
+- 🗄 **Spring Data JPA & `CrudRepository`** — Performing CRUD operations without manual SQL  
+- 🏗 **Entity Design** — Mapping Java classes to database tables using JPA annotations  
+- 🧠 **Service Layer** — Separating business logic from data access for clean architecture  
+- ⚡ **CommandLineRunner** — Executing CRUD operations automatically at application startup  
+- ⚙️ **Database Configuration** — Switching between Oracle & MySQL via `application.properties`  
+- 📦 **Maven Build Management** — Handling dependencies and project lifecycle  
+- 🔍 **JPA Magic** — Understanding how JPA auto-generates SQL queries under the hood  
+
+✨ This project not only strengthened my understanding of **Spring Boot & JPA**, but also improved my ability to structure clean, maintainable applications.  
+
+
 
 
 💡 Future Improvements
