@@ -4,14 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.nt.Service.ICustomermanagemetService;
-import com.nt.entity.Coustomer;
-
 @SpringBootApplication
 public class SpringbootDataJpaPro2CrudrepoApplication {
 
 	public static void main(String[] args) {
-	 SpringApplication.run(SpringbootDataJpaPro2CrudrepoApplication.class, args);
+		ApplicationContext ctx =  SpringApplication.run(SpringbootDataJpaPro2CrudrepoApplication.class, args);
 		
 //		 ICustomermanagemetService service= ctx.getBean("custService",ICustomermanagemetService.class);
 //		 try {
